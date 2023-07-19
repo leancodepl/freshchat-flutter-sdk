@@ -571,10 +571,12 @@ public class FreshchatSdkPlugin implements FlutterPlugin, MethodCallHandler {
 
                 case "resetUser":
                     resetUser();
+                    result.success(null);
                     break;
 
                 case "setUser":
                     setUser(call);
+                    result.success(null);
                     break;
 
                 case "getUser":
@@ -583,10 +585,12 @@ public class FreshchatSdkPlugin implements FlutterPlugin, MethodCallHandler {
 
                 case "setUserProperties":
                     setUserProperties(call);
+                    result.success(null);
                     break;
 
                 case "setBotVariables":
                     setBotVariables(call);
+                    result.success(null);
                     break;
 
                 case "getSdkVersion":
@@ -631,6 +635,7 @@ public class FreshchatSdkPlugin implements FlutterPlugin, MethodCallHandler {
 
                 case "identifyUser":
                     identifyUser(call);
+                    result.success(null);
                     break;
 
                 case "registerForEvent":

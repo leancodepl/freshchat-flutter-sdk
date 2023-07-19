@@ -168,14 +168,14 @@ class Freshchat {
   /// Resets the user stored by Freshchat SDK
   ///
   /// Should be used when user logs out of the application
-  static void resetUser() async {
+  static Future<void> resetUser() async {
     await _channel.invokeMethod('resetUser');
   }
 
   /// Sync any change to user information with Freshchat
   ///
   /// [user] is the FreshchatUser object which is constructed with user details
-  static void setUser(FreshchatUser user) async {
+  static Future<void> setUser(FreshchatUser user) async {
     await _channel.invokeMethod('setUser', <String, String?>{
       'firstName': user.getFirstName(),
       'lastName': user.getLastName(),
@@ -210,17 +210,20 @@ class Freshchat {
   }
 
   /// Sync a series of user meta information with Freshchat
-  static void setUserProperties(Map propertyMap) async {
+  static Future<void> setUserProperties(Map propertyMap) async {
     await _channel.invokeMethod('setUserProperties', <String, Map>{
       'propertyMap': propertyMap,
     });
   }
 
   /// Set bot variables and bot specific variables with Freshchat
-  static void setBotVariables(Map botVariables, Map specificVariables) async {
+  static Future<void> setBotVariables(
+    Map botVariables,
+    Map specificVariables,
+  ) async {
     await _channel.invokeMethod('setBotVariables', <String, Map>{
       'botVariables': botVariables,
-      'specificVariables':specificVariables
+      'specificVariables': specificVariables
     });
   }
 
@@ -364,8 +367,11 @@ class Freshchat {
   }
 
   /// To identify an user in Freshchat with an unique identifier from your system and restore an user across devices/sessions/platforms based on an external identifier and restore id
-  static void identifyUser({required String externalId, String? restoreId}) {
-    _channel.invokeMethod(
+  static Future<void> identifyUser({
+    required String externalId,
+    String? restoreId,
+  }) async {
+    await _channel.invokeMethod(
       'identifyUser',
       <String, String>{'externalId': externalId, 'restoreId': restoreId ?? ""},
     );

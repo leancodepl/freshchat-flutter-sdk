@@ -496,12 +496,16 @@ NSNotificationCenter *center;
         [instance trackEvent:call];
     }else if([@"setUserProperties" isEqualToString:call.method]){
         [instance setUserProperties:call];
+        result(NULL);
     }else if([@"setBotVariables" isEqualToString:call.method]){
         [instance setBotVariables:call];
+        result(NULL);
     }else if([@"resetUser" isEqualToString:call.method]){
         [instance resetUser];
+        result(NULL);
     }else if([@"setUser" isEqualToString:call.method]){
         [instance setUser:call];
+        result(NULL);
     }else if([@"getUser" isEqualToString:call.method]){
         result([instance getUser]);
     }else if([@"showFAQsWithOptions" isEqualToString:call.method]){
@@ -522,6 +526,7 @@ NSNotificationCenter *center;
         result([instance getUserIdTokenStatus]);
     }else if([@"identifyUser" isEqualToString:call.method]){
         [instance identifyUser:call];
+        result(NULL);
     }else if([@"setNotificationConfig" isEqualToString:call.method]){
         [instance setNotificationConfig];
     }else if([@"setPushRegistrationToken" isEqualToString:call.method]){
